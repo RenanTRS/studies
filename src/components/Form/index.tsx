@@ -12,7 +12,7 @@ export const Form = () => {
                 <label htmlFor="time">Time</label>
                 <input type="time" id="time" placeholder="" step="1" min="00:00:00" max="01:30:00" required />
             </div>
-            <Button />
+            <Button>Adicionar</Button>
         </form>
     )
 }
