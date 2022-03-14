@@ -1,5 +1,6 @@
+import './style.scss'
 export const Button = () => {
     return (
-        <button>Botão</button>
+        <button className="botao">Botão</button>
     )
 }
