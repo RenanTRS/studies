@@ -1,12 +1,15 @@
+import style from './App.module.scss'
+
 import { Form } from "./components/Form"
 import { List } from "./components/List"
+import { Cron } from "./components/Cron"
 
-import style from './App.module.scss'
 function App() {
   return (
     <div className={style.AppStyle}>
       <Form />
       <List />
+      <Cron />
     </div>
   )
 }
