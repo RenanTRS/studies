@@ -1,3 +1,4 @@
+import { Item } from './Item'
 import style from './List.module.scss'
 export const List = () => {
     const tasks = [{
@@ -5,8 +6,12 @@ export const List = () => {
         time: '02:00:00'
     },
     {
-        name: 'Javascript',
+        name: 'JavaScript',
         time: '01:00:00'
+    },
+    {
+        name: 'TypeScript',
+        time: '03:00:00'
     }
     ]
     return(
@@ -15,10 +20,7 @@ export const List = () => {
             <ul>
                 {tasks.map((task, key)=>{
                     return(
-                        <li key={key} className={style.item}>
-                            <h3>{task.name}</h3>
-                            <p>{task.time}</p>
-                        </li>
+                        <Item {...task} key={key} />
                     )
                 })}
             </ul>
