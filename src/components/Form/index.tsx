@@ -1,18 +1,21 @@
 import style from './Form.module.scss'
-import { useState, FormEvent } from 'react'
+import { useState, FormEvent, useContext } from 'react'
 import { Button } from "../Button"
+import {TaskContext} from '../../App'
 
-export const Form = () => {
-    const [time, setTime] = useState('00:00:00')
-    const [task, setTask] = useState('')
+export const Form = ()  => {
+    const {tasks, setTasks} = useContext(TaskContext)
+    const [time, setTime] = useState<string>('00:00:00')
+    const [name, setName] = useState<string>('')
 
     const handlerSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        const teste = {
-            task,
-            time
+        const newTask = {
+            name: name,
+            time: time
         }
-        console.log(teste)
+
+        setTasks([...tasks, newTask])
     }
     return(
         <form className={style.novaTarefa} onSubmit={event => handlerSubmit(event)}>
@@ -22,8 +25,8 @@ export const Form = () => {
                     type="text" 
                     id="task" 
                     placeholder="O que você precisa estudar" 
-                    value={task}
-                    onChange={event => setTask(event.target.value)}
+                    value={name}
+                    onChange={event => setName(event.target.value)}
                     required 
                 />
             </div>
