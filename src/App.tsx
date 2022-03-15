@@ -14,14 +14,19 @@ type taskProps = {
 }
 type TaskContextType = {
   tasks: taskProps[];
-  setTasks: Dispatch<taskProps[]> //tipage para o setTasks
+  setTasks: Dispatch<taskProps[]>; //tipagem para o setTasks
+  select?: taskProps;
+  setSelect: Dispatch<taskProps>;
 }
+
 export const TaskContext = createContext({} as TaskContextType)
 
 function App() {
   const [tasks, setTasks] = useState<taskProps[]>([])
+  const [select, setSelect] = useState<taskProps>()
+
   return (
-    <TaskContext.Provider value={{tasks, setTasks}}>
+    <TaskContext.Provider value={{tasks, setTasks, select, setSelect}}>
       <div className={style.AppStyle}>
         <Form />
         <List />

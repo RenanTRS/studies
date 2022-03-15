@@ -17,9 +17,8 @@ export const Form = ()  => {
             time: time,
             selected: false,
             completed: false,
-            id: uuidv4()
+            id: uuidv4() //gera id
         }
-        console.log(newTask)
 
         //Reset states
         setName('')
