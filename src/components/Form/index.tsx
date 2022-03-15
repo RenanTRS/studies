@@ -5,7 +5,7 @@ import {TaskContext} from '../../App'
 
 export const Form = ()  => {
     const {tasks, setTasks} = useContext(TaskContext) //Context
-    
+
     const [time, setTime] = useState<string>('00:00:00')
     const [name, setName] = useState<string>('')
 
@@ -16,8 +16,11 @@ export const Form = ()  => {
             time: time
         }
 
+        //Reset states
         setName('')
         setTime('00:00:00')
+
+        //Add task
         setTasks([...tasks, newTask])
     }
     return(
