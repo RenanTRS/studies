@@ -2,6 +2,7 @@ import style from './Form.module.scss'
 import { useState, FormEvent, useContext } from 'react'
 import { Button } from "../Button"
 import {TaskContext} from '../../App'
+import {v4 as uuidv4} from 'uuid'
 
 export const Form = ()  => {
     const {tasks, setTasks} = useContext(TaskContext) //Context
@@ -13,8 +14,12 @@ export const Form = ()  => {
         event.preventDefault()
         const newTask = {
             name: name,
-            time: time
+            time: time,
+            selected: false,
+            completed: false,
+            id: uuidv4()
         }
+        console.log(newTask)
 
         //Reset states
         setName('')

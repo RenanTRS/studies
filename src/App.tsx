@@ -8,6 +8,9 @@ import { useState, createContext, Dispatch } from 'react'
 type taskProps = {
   name: string;
   time: string;
+  selected: boolean;
+  completed: boolean;
+  id: string;
 }
 type TaskContextType = {
   tasks: taskProps[];
