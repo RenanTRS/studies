@@ -1,12 +1,10 @@
 import style from './Button.module.scss'
-import {ReactNode} from 'react'
+import {ButtonHTMLAttributes} from 'react'
 
-type ButtonProps = {
-    children?: ReactNode;
-}
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> //Tipage para button, já vem com children incluso
 
-export const Button = ({children}: ButtonProps) => {
+export const Button = ({...props}: ButtonProps) => {
     return (
-        <button className={style.botao}>{children}</button>
+        <button {...props} className={style.botao} />
     )
 }
