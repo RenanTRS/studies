@@ -17,6 +17,7 @@ type TaskContextType = {
   setTasks: Dispatch<taskProps[]>; //tipagem para o setTasks
   select?: taskProps;
   setSelect: Dispatch<taskProps>;
+  completedTask: () => void;
 }
 
 export const TaskContext = createContext({} as TaskContextType)
@@ -25,8 +26,24 @@ function App() {
   const [tasks, setTasks] = useState<taskProps[]>([])
   const [select, setSelect] = useState<taskProps>()
 
+  const completedTask = () => {
+    if(select){
+        setSelect(undefined)
+        setTasks(tasks.map(task => {
+            if(task.id === select.id){
+                return {
+                    ...task,
+                    selected: false,
+                    completed: true
+                }
+            }
+            
+           return task
+        }))
+    }
+  }
   return (
-    <TaskContext.Provider value={{tasks, setTasks, select, setSelect}}>
+    <TaskContext.Provider value={{tasks, setTasks, select, setSelect, completedTask}}>
       <div className={style.AppStyle}>
         <Form />
         <List />
