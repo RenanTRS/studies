@@ -16,13 +16,25 @@ export const Cron = () => {
         }
     },[select])
 
+    const regress = (cont: number = 0) => {
+        //Função que faz a contagem regressiva
+        setTimeout(()=>{
+            if(cont > 0){
+                setTime(cont -1)
+                return regress(cont - 1) //Recursiva
+            }
+        }, 1000)
+    }
+
     return(
         <div className={style.cronometro}>
             <p className={style.titulo}>Escolha um card e inicie o cronômetro</p>
             <div className={style.relogioWrapper}>
                 <Watch time={time} />
             </div>
-            <Button>Começar</Button>
+            <Button onClick={()=> regress(time)}>
+                Começar
+            </Button>
         </div>
     )
 }
