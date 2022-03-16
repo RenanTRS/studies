@@ -18,9 +18,9 @@ export const Cron = () => {
 
     return(
         <div className={style.cronometro}>
-            <p className={style.titulo}>Escolha um card e inicie o cronômetro, Tempo: {time}</p>
+            <p className={style.titulo}>Escolha um card e inicie o cronômetro</p>
             <div className={style.relogioWrapper}>
-                <Watch />
+                <Watch time={time} />
             </div>
             <Button>Começar</Button>
         </div>

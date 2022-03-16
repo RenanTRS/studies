@@ -1,6 +1,9 @@
 import style from './Watch.module.scss'
 
-export const Watch = () => {
+interface Props {
+    time?: number
+}
+export const Watch = ({time}: Props) => {
     return(
         <>
             <span className={style.relogioNumero}>0</span>
