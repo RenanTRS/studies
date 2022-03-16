@@ -7,7 +7,8 @@ import { Button } from "../Button"
 import { timeToSeconds } from '../../common/utils/time'
 
 export const Cron = () => {
-    const {select} = useContext(TaskContext)
+    const {select, completedTask} = useContext(TaskContext) //Context
+
     const [time, setTime] = useState<number>()
 
     useEffect(()=>{
@@ -23,6 +24,7 @@ export const Cron = () => {
                 setTime(cont -1)
                 return regress(cont - 1) //Recursiva
             }
+            completedTask()
         }, 1000)
     }
 
