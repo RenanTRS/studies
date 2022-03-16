@@ -5,7 +5,8 @@ import { TaskContext } from '../../App'
 import { ListProps } from '../types/tasks'
 
 export const List = () => {
-    const {tasks, setSelect, setTasks} = useContext(TaskContext)
+    const {tasks, setSelect, setTasks} = useContext(TaskContext) //Context
+
     const selectTask = (taskSelect: ListProps) => {
         setSelect(taskSelect)
         setTasks(tasks.map((task)=>({
@@ -13,6 +14,7 @@ export const List = () => {
             selected: task.id === taskSelect.id ? true : false
         }))) //Refaz o array
     }
+
     return(
         <aside className={style.listaTarefas}>
             <h2>Estudos do dia</h2>
